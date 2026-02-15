@@ -1,18 +1,19 @@
 import { createRoot } from "react-dom/client";
-import React from 'react';
-import Header from "./components/Header";
-import FoodOption from "./components/FoodOption";
-import GroceryOption from "./components/GroceryOption";
-import DineOption from "./components/DineOption";
+import Home from "./components/Home";
 import Restaurant from "./components/Restaurant";
+import { BrowserRouter, Route, Routes } from "react-router";
+import RestaurantMenu from './components/RestaurantMenu';
 function App() {
     return (
         <>
-            <Header></Header>
-            <FoodOption></FoodOption>
-            <GroceryOption></GroceryOption>
-            <DineOption></DineOption>
-            <Restaurant></Restaurant>
+            
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Home></Home>} ></Route>
+                    <Route path='/restaurant' element={<Restaurant></Restaurant>} ></Route>
+                    <Route path="/city/delhi/:id" element={<RestaurantMenu></RestaurantMenu>}></Route>
+                </Routes>
+            </BrowserRouter>
         </>
     )
 }

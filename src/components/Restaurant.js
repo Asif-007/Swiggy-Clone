@@ -13,7 +13,7 @@ export default function Restaurant() {
       const data = await response.json();
 
       setRestData(
-        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants,
+        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants,
       );
     }
     fetchData();
@@ -22,12 +22,12 @@ export default function Restaurant() {
 
 
   // Shimmer Effect
-  if (restData.length === 0)
+  if (restData?.length === 0)
     return <Shimmer></Shimmer>
     return (
         <div className="flex flex-wrap w-[80%] mx-auto mt-20 gap-5">
             {
-                restData.map((restInfo) => <RestCard key={restInfo.info.id} restInfo={restInfo}></RestCard>)
+                restData?.map((restInfo) => <RestCard key={restInfo.info.id} restInfo={restInfo}></RestCard>)
             }
         </div>
     )
